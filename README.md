@@ -72,6 +72,11 @@ $validator = new Gkunno\Validator;
 $validator->generate('TEX','U',1, 100 ));
 ```
 
+## Todo
+
+Tests are missing, and some functions are cumbersome.
+Stay tuned for a big update!
+
 ## License
 [MIT](http://opensource.org/licenses/MIT)
 
