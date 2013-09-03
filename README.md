@@ -8,7 +8,7 @@ This is a fork from a piece of code (MIT licensed) I found on the web. I have mo
 
 ## Install
 
-Install with composer, or clone the repo to your project.
+Install with composer, or clone the repo to into your project.
 
 ## Documentation
 
@@ -27,13 +27,15 @@ $container = $validator->validate('TEXU3070079');
 print_r($container);
 
 // returns => Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 307007 [4] => 9 )
-// Where:
+```
+Where:
+
+```php
 // [0] = The code being validated
 // [1] = The containers ownercode
 // [2] = The containers group code
 // [3] = The containers registration digit
 // [4] = The containers check digit
-
 ```
 
 How to get error messages when the containe code is invalid (TEXU3070070 is invalid)
@@ -43,8 +45,7 @@ $validator = new Gkunno\Validator;
 $container = $validator->validate('TEXU3070070');
 $validator->isValid('TEXU3070070'); // bool(false) if invalid
 print_r($validator->getErrorMessages()); // Array ( [0] => Check digit does not match
-
-
+```
 
 ## License
 MIT
