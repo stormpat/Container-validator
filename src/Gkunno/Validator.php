@@ -154,6 +154,7 @@ class Validator {
 
     protected function buildCheckDigit( $matches ) {
 
+        // Using isset() to avoid any errors on runtime
         if (isset($matches[1])) {
             $this->ownerCode = str_split($matches[1]);
         }

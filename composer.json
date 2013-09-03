@@ -1,15 +1,18 @@
 {
     "name": "gkunno/validator",
     "license": "MIT",
-    "description": "EDIT",
+    "description": "Validate cargo containers with the ISO standard",
     "version": "0.0.1",
-    "keywords": ["lEDIT"],
-    "homepage": "EDIT",
+    "keywords": ["cargo, container, validator, ISO"],
     "authors": [
         {
-            "name": "EDIT",
-            "homepage": "EDIT",
-            "role": "EDIT"
+            "name": "Patrik Storm",
+            "role": "Developer"
+        }
+    ],
+    "original-author": [
+        {
+            "name":  "gedex.adc"
         }
     ],
     "require": {
