@@ -19,15 +19,14 @@ $validator = new Gkunno\Validator;
 $validator->isValid('TEXU3070079')); // bool(true) if valid
 ```
 
-To get the diffrent segments from the code you can do
+To get the diffrent segments from the code you can do,
 
 ```php
 $validator = new Gkunno\Validator;
 $container = $validator->validate('TEXU3070079');
 print_r($container); // Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 307007 [4] => 9 )
-
 ```
-Where:
+where:
 
 ```php
 // [0] = The code being validated
@@ -44,6 +43,29 @@ $validator = new Gkunno\Validator;
 $container = $validator->validate('TEXU3070070');
 $validator->isValid('TEXU3070070'); // bool(false) if invalid
 print_r($validator->getErrorMessages()); // Array ( [0] => Check digit does not match
+```
+
+Access information about the container:
+```php
+$validator = new Gkunno\Validator;
+$validator->validate('TEXU3070070');
+$validator->getOwnerCode())
+$validator->getProductGroupCode()
+$validator->getRegistrationDigit())
+$validator->getCheckDigit()
+```
+
+Create a check digit to a container that does not have one
+```php
+$validator = new Gkunno\Validator;
+$validator->createCheckDigit('TEXU307007'); // 9
+```
+
+Generate container numbers:
+```php
+// Params are (left to right): owner-code, product-group-code, number-from, number-to
+$validator = new Gkunno\Validator;
+$validator->generate('TEX','U',1, 100 ));
 ```
 
 ## License
