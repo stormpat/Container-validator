@@ -66,15 +66,13 @@ Generate container numbers:
 // Params are (left to right): owner-code, product-group-code, number-from, number-to
 $validator = new Gkunno\Validator;
 $validator->generate('TEX','U',1, 100 ));
-```
+``
 
 ## License
-MIT
+[MIT](http://opensource.org/licenses/MIT)
 
 ## Credits
 
 Salute to the original author,
-
 [gedex.adc](http://www.google.com/gedex.web.id)
-
 
