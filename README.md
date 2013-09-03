@@ -24,9 +24,8 @@ To get the diffrent segments from the code you can do
 ```php
 $validator = new Gkunno\Validator;
 $container = $validator->validate('TEXU3070079');
-print_r($container);
+print_r($container); // Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 307007 [4] => 9 )
 
-// returns => Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 307007 [4] => 9 )
 ```
 Where:
 
