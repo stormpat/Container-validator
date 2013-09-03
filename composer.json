@@ -1,5 +1,5 @@
 {
-    "name": "gkunno/Container-validator",
+    "name": "gkunno/container-validator",
     "type": "library",
     "description": "Cargo container code validator",
     "keywords": ["cargo","container", "validator"],
