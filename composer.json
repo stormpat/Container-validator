@@ -2,7 +2,7 @@
     "name": "gkunno/container-validator",
     "type": "library",
     "description": "Cargo container code validator",
-    "keywords": ["cargo","container", "validator"],
+    "keywords": ["cargo", "container", "validator"],
     "homepage": "https://github.com/gkunno/Container-validator",
     "license": "MIT",
     "authors": [

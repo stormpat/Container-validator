@@ -33,11 +33,6 @@ class Validator {
     protected $registrationDigit = array();
     protected $checkDigit;
 
-    public function __toString()
-    {
-        return $this->errorMessages;
-    }
-
     public function isValid($containerNo) {
         $valid = $this->validate($containerNo);
 
