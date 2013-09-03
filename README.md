@@ -10,6 +10,10 @@ This is a fork from a piece of code (MIT licensed) I found on the web. I have mo
 
 Install with composer, or clone the repo to into your project.
 
+With composer, just add to your composer.json
+
+```require: "gkunno/container-validator": "dev-master"```
+
 ## Documentation
 
 Validate container ISO codes (TEXU3070079 is valid)
