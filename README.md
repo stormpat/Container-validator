@@ -36,7 +36,7 @@ where:
 // [4] = The containers check digit
 ```
 
-How to get error messages when the containe code is invalid (TEXU3070070 is invalid)
+How to get error messages when the container code is invalid (TEXU3070070 is invalid)
 
 ```php
 $validator = new Gkunno\Validator;
@@ -49,10 +49,10 @@ Access information about the container:
 ```php
 $validator = new Gkunno\Validator;
 $validator->validate('TEXU3070070');
-$validator->getOwnerCode())
-$validator->getProductGroupCode()
-$validator->getRegistrationDigit())
-$validator->getCheckDigit()
+$validator->getOwnerCode()) // TEX
+$validator->getProductGroupCode() // U
+$validator->getRegistrationDigit()) // 307007
+$validator->getCheckDigit() // 9
 ```
 
 Create a check digit to a container that does not have one
@@ -66,7 +66,7 @@ Generate container numbers:
 // Params are (left to right): owner-code, product-group-code, number-from, number-to
 $validator = new Gkunno\Validator;
 $validator->generate('TEX','U',1, 100 ));
-```
+``
 
 ## License
 MIT
