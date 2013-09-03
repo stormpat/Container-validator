@@ -7,9 +7,10 @@ $validator = new Gkunno\Validator;
 echo '<h1>Example of valid container number : TEXU3070079</h1>';
 // test valid container
 // if number is valid, validate() will return array of segment code otherwise an empty array returned
-$codeSegment = $validator->validate('TEXU3070079');
-print_r($codeSegment);
+$container = $validator->validate('TEXU3070079');
+print_r($container);
 // will return true on valid number
+echo '<br>';
 var_dump($validator->isValid('TEXU3070079'));
 echo '<hr />';
 
@@ -19,7 +20,7 @@ $codeSegment = $validator->validate('TEXU3070070');
 print_r($codeSegment);
 var_dump( $validator->isValid('TEXU3070070') );
 // get error messages
-var_dump($validator->getErrorMessages());
+print_r( $validator->getErrorMessages());
 echo '<hr />';
 
 echo '<h1>Example of getting owner code, product group code, registration digit and check digit from valid container number : TEXU3070079</h1>';

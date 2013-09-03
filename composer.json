@@ -1,20 +1,13 @@
 {
-    "name": "gkunno/validator",
+    "name": "gkunno/Container-validator",
+    "homepage": "http://github.com/gkunno/Container-validator",
     "license": "MIT",
-    "description": "Validate cargo containers with the ISO standard",
-    "version": "0.0.1",
-    "keywords": ["cargo, container, validator, ISO"],
-    "authors": [
-        {
-            "name": "Patrik Storm",
-            "role": "Developer"
-        }
-    ],
-    "original-author": [
-        {
-            "name":  "gedex.adc"
-        }
-    ],
+    "description": "Validate cargo containers with the ISO 6346 standard",
+    "version": "0.1",
+    "keywords": ["cargo, container, validator"],
+    "authors": {
+        "name": "gkunno",
+    },
     "require": {
         "php": ">=5.3.0"
     },

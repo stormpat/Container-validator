@@ -33,6 +33,11 @@ class Validator {
     protected $registrationDigit = array();
     protected $checkDigit;
 
+    public function __toString()
+    {
+        return $this->errorMessages;
+    }
+
     public function isValid($containerNo) {
         $valid = $this->validate($containerNo);
 
@@ -53,7 +58,7 @@ class Validator {
                 $checkDigit = $this->buildCheckDigit($matches);
 
                 if ($this->checkDigit != $checkDigit) {
-                    $this->errorMessages[] = 'Check digit is not match';
+                    $this->errorMessages[] = 'Check digit does not match';
                     $matches = array();
                 }
             }

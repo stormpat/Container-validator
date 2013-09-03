@@ -8,22 +8,51 @@ This is a fork from a piece of code (MIT licensed) I found on the web. I have mo
 
 ## Install
 
-@todo
+Install with composer, or clone the repo to your project.
 
 ## Documentation
 
+Validate container ISO codes (TEXU3070079 is valid)
+
 ```php
 $validator = new Gkunno\Validator;
-$validator->validate('TEXU3070079');
-
-$validator->getErrorMessages());
+$validator->isValid('TEXU3070079')); // bool(true) if valid
 ```
+
+To get the diffrent segments from the code you can do
+
+```php
+$validator = new Gkunno\Validator;
+$container = $validator->validate('TEXU3070079');
+print_r($container);
+
+// returns => Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 307007 [4] => 9 )
+// Where:
+// [0] = The code being validated
+// [1] = The containers ownercode
+// [2] = The containers group code
+// [3] = The containers registration digit
+// [4] = The containers check digit
+
+```
+
+How to get error messages when the containe code is invalid (TEXU3070070 is invalid)
+
+```php
+$validator = new Gkunno\Validator;
+$container = $validator->validate('TEXU3070070');
+$validator->isValid('TEXU3070070'); // bool(false) if invalid
+print_r($validator->getErrorMessages()); // Array ( [0] => Check digit does not match
+
+
+
 ## License
 MIT
 
 ## Credits
 
-The original author
-[gedex.adc](http://www.google.com/gedex.web.id).
+Salute to the original author,
+
+[gedex.adc](http://www.google.com/gedex.web.id)
 
 
