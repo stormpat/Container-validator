@@ -12,15 +12,20 @@ Install with composer, or clone the repo to into your project.
 
 With composer, just add to your composer.json
 
-```require: "gkunno/container-validator": "dev-master"```
+```php
+require: "gkunno/container-validator": "dev-master"
+```
 
 ## Documentation
 
-Validate container ISO codes (TEXU3070079 is valid)
+Validate container ISO codes (TEXU3070079 is valid, TEXU3070070 invalid)
 
 ```php
 $validator = new Gkunno\Validator;
-$validator->isValid('TEXU3070079')); // bool(true) if valid
+$validator->isValid('TEXU3070079'); // true
+
+$validator = new Gkunno\Validator;
+$validator->isValid('TEXU3070070'); // false
 ```
 
 To get the diffrent segments from the code you can do,
@@ -40,23 +45,28 @@ where:
 // [4] = The containers check digit
 ```
 
-How to get error messages when the container code is invalid (TEXU3070070 is invalid)
+How to get error messages when the container code is invalid
 
 ```php
 $validator = new Gkunno\Validator;
-$container = $validator->validate('TEXU3070070');
-$validator->isValid('TEXU3070070'); // bool(false) if invalid
-print_r($validator->getErrorMessages()); // Array ( [0] => Check digit does not match
+$validator->validate('TEXU3070070');
+$validator->getErrorMessages(); // The check digit does not match
+
+$validator->validate(12345678910);
+$validator->getErrorMessages(); // The container number must be a string
+
+$validator->validate('C3P0');
+$validator->getErrorMessages(); // The container number is invalid
 ```
 
 Access information about the container:
 ```php
 $validator = new Gkunno\Validator;
 $validator->validate('TEXU3070070');
-$validator->getOwnerCode()) // TEX
-$validator->getProductGroupCode() // U
-$validator->getRegistrationDigit()) // 307007
-$validator->getCheckDigit() // 9
+echo $validator->getOwnerCode(); // TEX
+echo $validator->getProductGroupCode(); // U
+echo $validator->getRegistrationDigit(); // 307007
+echo $validator->getCheckDigit(); // 9
 ```
 
 Create a check digit to a container that does not have one
@@ -75,7 +85,7 @@ $validator->generate('TEX','U',1, 100 ));
 ## Todo
 
 Tests are missing, and some functions are cumbersome.
-Stay tuned for a big update!
+
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)

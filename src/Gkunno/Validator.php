@@ -3,7 +3,7 @@
 class Validator {
 
     /**
-    * @functions
+    * @functions list
     *
     * public isValid()
     * public validate()
@@ -32,70 +32,85 @@ class Validator {
     protected $productGroupCode;
     protected $registrationDigit = array();
     protected $checkDigit;
+    protected $containerNumber;
 
-    public function isValid($containerNo) {
-        $valid = $this->validate($containerNo);
-
+    /**
+     * Check if the container has a valid container code
+     *
+     * @return boolean
+     */
+    public function isValid($containerNumber)
+    {
+        $valid = $this->validate($containerNumber);
         if (empty($this->errorMessages)) {
             return true;
         }
         return false;
     }
 
-    public function validate($containerNo) {
+    public function validate($containerNumber)
+    {
         $matches = array();
-        if (!empty($containerNo) && is_string($containerNo)) {
-            $matches = $this->identify($containerNo);
+
+        if (!empty($containerNumber) && is_string($containerNumber)) {
+            $matches = $this->identify($containerNumber);
 
             if (count($matches) !== 5) {
-                $this->errorMessages[] = 'Invalid container number';
+                $this->errorMessages[] = 'The container number is invalid';
             } else {
                 $checkDigit = $this->buildCheckDigit($matches);
 
                 if ($this->checkDigit != $checkDigit) {
-                    $this->errorMessages[] = 'Check digit does not match';
+                    $this->errorMessages[] = 'The check digit does not match';
                     $matches = array();
                 }
             }
         } else {
-            $this->errorMessages = array('Container number must be a string');
+            $this->errorMessages = array('The container number must be a string');
         }
         return $matches;
     }
 
-    public function getErrorMessages() {
+    public function getErrorMessages()
+    {
         return $this->errorMessages;
     }
 
-    public function getOwnerCode() {
+    public function getOwnerCode()
+    {
         if (empty($this->ownerCode)) {
             $this->errorMessages[] = 'You must call validate or isValid first';
         }
         return $this->ownerCode;
     }
 
-    public function getProductGroupCode() {
+    public function getProductGroupCode()
+    {
         if (empty($this->productGroupCode)) {
             $this->errorMessages[] = 'You must call validate or isValid first';
         }
         return $this->productGroupCode;
     }
 
-    public function getRegistrationDigit() {
+    public function getRegistrationDigit()
+    {
         if (empty($this->registrationDigit)) {
             $this->errorMessages[] = 'You must call validate or isValid first';
         }
         return $this->registrationDigit;
     }
 
-    public function getCheckDigit() {
+    public function getCheckDigit()
+    {
         if (empty($this->checkDigit)) {
             $this->errorMessages[] = 'You must call validate or isValid first';
         }
         return $this->checkDigit;
     }
 
-    public function generate($ownerCode, $productGroupCode, $from = 0, $to = 999999) {
+    public function generate($ownerCode, $productGroupCode, $from = 0, $to = 999999)
+    {
+
         $alphabetCode = strtoupper($ownerCode . $productGroupCode);
         $containers_no = array();
 
@@ -127,10 +142,11 @@ class Validator {
         return $containers_no;
     }
 
-    public function createCheckDigit($containerNo) {
+    public function createCheckDigit($containerNumber)
+    {
         $checkDigit = -1;
-        if (!empty($containerNo) && is_string($containerNo)) {
-            $matches = $this->identify( $containerNo, true );
+        if (!empty($containerNumber) && is_string($containerNumber)) {
+            $matches = $this->identify( $containerNumber, true );
 
             if (count($matches) !== 4 || isset($mathes[4])) {
                 $this->errorMessages[] = 'Invalid container number';
@@ -146,11 +162,13 @@ class Validator {
         return $checkDigit;
     }
 
-    public function clearErrors() {
+    public function clearErrors()
+    {
         $this->errorMessages = array();
     }
 
-    protected function buildCheckDigit($matches) {
+    protected function buildCheckDigit($matches)
+    {
 
         if (isset($matches[1])) {
             $this->ownerCode = str_split($matches[1]);
@@ -186,12 +204,14 @@ class Validator {
         return ($checkDigit == 10) ? 0 : $checkDigit;
     }
 
-    protected function identify($containerNo, $withoutCheckDigit = false) {
+    protected function identify($containerNumber, $withoutCheckDigit = false)
+    {
         $this->clearErrors();
+
         if ($withoutCheckDigit) {
-            preg_match($this->patternWithoutCheckDigit, strtoupper($containerNo), $matches);
+            preg_match($this->patternWithoutCheckDigit, strtoupper($containerNumber), $matches);
         } else {
-            preg_match($this->pattern, strtoupper($containerNo), $matches);
+            preg_match($this->pattern, strtoupper($containerNumber), $matches);
         }
         return $matches;
     }
