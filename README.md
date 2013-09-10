@@ -70,7 +70,7 @@ $validator->createCheckDigit('TEXU307007'); // 9
 
 Generate container numbers:
 ```php
-@params owner-code, product-group-code, number-start, number-end
+// $validator->generate( owner-code, product-group-code, number-start, number-end );
 $validator = new Gkunno\Validator;
 $validator->generate('TEX','U',1, 100 ));
 ```
