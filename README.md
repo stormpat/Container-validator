@@ -4,8 +4,6 @@ With the Cargo container validator you can check that a container has a valid IS
 
 This is a fork from a piece of code (MIT licensed) I found on the web. I have modified some parts, and made the whole thing work with [Composer](http://getcomposer.org/)
 
-*Credits shall go to the orginal author.*
-
 ## Install
 
 Install with composer, or clone the repo to into your project.
@@ -18,20 +16,17 @@ require: "gkunno/container-validator": "dev-master"
 
 ## Documentation
 
-Validate container ISO codes (TEXU3070079 is valid, TEXU3070070 invalid)
+Validate container ISO codes (TEXU3070079 = valid, TEXU3070070 != valid)
 
 ```php
 $validator = new Gkunno\Validator;
 $validator->isValid('TEXU3070079'); // true
-
-$validator = new Gkunno\Validator;
 $validator->isValid('TEXU3070070'); // false
 ```
 
 To get the diffrent segments from the code you can do,
 
 ```php
-$validator = new Gkunno\Validator;
 $container = $validator->validate('TEXU3070079');
 print_r($container); // Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 307007 [4] => 9 )
 ```
@@ -48,7 +43,6 @@ where:
 How to get error messages when the container code is invalid
 
 ```php
-$validator = new Gkunno\Validator;
 $validator->validate('TEXU3070070');
 $validator->getErrorMessages(); // The check digit does not match
 
@@ -61,7 +55,6 @@ $validator->getErrorMessages(); // The container number is invalid
 
 Access information about the container:
 ```php
-$validator = new Gkunno\Validator;
 $validator->validate('TEXU3070070');
 echo $validator->getOwnerCode(); // TEX
 echo $validator->getProductGroupCode(); // U
@@ -77,7 +70,7 @@ $validator->createCheckDigit('TEXU307007'); // 9
 
 Generate container numbers:
 ```php
-// Params are (left to right): owner-code, product-group-code, number-from, number-to
+@params owner-code, product-group-code, number-start, number-end
 $validator = new Gkunno\Validator;
 $validator->generate('TEX','U',1, 100 ));
 ```
