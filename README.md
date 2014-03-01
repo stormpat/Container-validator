@@ -14,14 +14,19 @@ With composer, just add to your composer.json
 require: "stormpat/container-validator": "dev-master"
 ```
 
+Add the composer autoloading to your bootstrap.
+```php
+require_once __DIR__ . '/vendor/autoload.php';
+```
+
 ## Documentation
 
 Validate container ISO codes (TEXU3070079 = valid, TEXU3070070 != valid)
 
 ```php
 $validator = new Validator\Validator;
-$validator->isValid('TEXU3070079'); // true
-$validator->isValid('TEXU3070070'); // false
+$validator->isValid('TEXU3070079'); // boolean true
+$validator->isValid('TEXU3070070'); // boolean false
 ```
 
 To get the diffrent segments from the code you can do,
@@ -33,11 +38,12 @@ print_r($container); // Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 30
 where:
 
 ```php
-// [0] = The code being validated
-// [1] = The containers ownercode
-// [2] = The containers group code
-// [3] = The containers registration digit
-// [4] = The containers check digit
+array
+  0 => string 'TEXU3070079' // The code being validated
+  1 => string 'TEX' // The containers ownercode
+  2 => string 'U' // The containers group code
+  3 => string '307007' // The containers registration digit
+  4 => string '9' // The containers check digit
 ```
 
 How to get error messages when the container code is invalid
