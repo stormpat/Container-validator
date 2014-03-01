@@ -81,11 +81,6 @@ $validator = new Validator\Validator;
 $validator->generate('TEX','U',1, 100 ));
 ```
 
-## Todo
-
-Tests are missing, and some functions are cumbersome.
-
-
 ## License
 [MIT](http://opensource.org/licenses/MIT)
 
