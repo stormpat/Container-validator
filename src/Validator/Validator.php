@@ -1,4 +1,4 @@
-<?php namespace Gkunno;
+<?php namespace Validator;
 
 class Validator {
 

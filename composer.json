@@ -1,9 +1,9 @@
 {
-    "name": "gkunno/container-validator",
+    "name": "stormpat/container-validator",
     "type": "library",
     "description": "Cargo container code validator",
     "keywords": ["cargo", "container", "validator"],
-    "homepage": "https://github.com/gkunno/Container-validator",
+    "homepage": "https://github.com/stormpat/Container-validator",
     "license": "MIT",
     "authors": [
         {
@@ -18,7 +18,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-0": {
-            "Gkunno": "src"
+            "Validator": "src"
         }
     }
 }

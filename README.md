@@ -11,7 +11,7 @@ Install with composer, or clone the repo to into your project.
 With composer, just add to your composer.json
 
 ```php
-require: "gkunno/container-validator": "dev-master"
+require: "stormpat/container-validator": "dev-master"
 ```
 
 ## Documentation
@@ -19,7 +19,7 @@ require: "gkunno/container-validator": "dev-master"
 Validate container ISO codes (TEXU3070079 = valid, TEXU3070070 != valid)
 
 ```php
-$validator = new Gkunno\Validator;
+$validator = new Validator\Validator;
 $validator->isValid('TEXU3070079'); // true
 $validator->isValid('TEXU3070070'); // false
 ```
@@ -64,14 +64,14 @@ echo $validator->getCheckDigit(); // 9
 
 Create a check digit to a container that does not have one
 ```php
-$validator = new Gkunno\Validator;
+$validator = new Validator\Validator;
 $validator->createCheckDigit('TEXU307007'); // 9
 ```
 
 Generate container numbers:
 ```php
 // $validator->generate( owner-code, product-group-code, number-start, number-end );
-$validator = new Gkunno\Validator;
+$validator = new Validator\Validator;
 $validator->generate('TEX','U',1, 100 ));
 ```
 
