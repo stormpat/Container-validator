@@ -10,8 +10,10 @@ Install with composer, or clone the repo to into your project.
 
 With composer, just add to your composer.json
 
-```php
-require: "stormpat/container-validator": "dev-master"
+```json
+"require": {
+    "stormpat/container-validator": "dev-master"
+}
 ```
 
 Add the composer autoloading to your bootstrap.
