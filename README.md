@@ -27,8 +27,8 @@ Validate container ISO codes (TEXU3070079 = valid, TEXU3070070 != valid)
 
 ```php
 $validator = new Validator\Validator;
-$validator->isValid('TEXU3070079'); // boolean true
-$validator->isValid('TEXU3070070'); // boolean false
+$validator->isValid('TEXU3070079'); // true
+$validator->isValid('TEXU3070070'); // false
 ```
 
 To get the diffrent segments from the code you can do,
@@ -40,7 +40,6 @@ print_r($container); // Array ( [0] => TEXU3070079 [1] => TEX [2] => U [3] => 30
 where:
 
 ```php
-array
   0 => string 'TEXU3070079' // The code being validated
   1 => string 'TEX' // The containers ownercode
   2 => string 'U' // The containers group code
@@ -82,6 +81,10 @@ Generate container numbers:
 $validator = new Validator\Validator;
 $validator->generate('TEX','U',1, 100 ));
 ```
+
+## Notes
+
+- Theres a JavaScript port by Sameer Shemna that can be found [here](https://github.com/sameersemna/Container-validator-JS)
 
 ## License
 
