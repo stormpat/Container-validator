@@ -84,7 +84,8 @@ $validator->generate('TEX','U',1, 100 ));
 
 ## Notes
 
-- Theres a JavaScript port by Sameer Shemna that can be found [here](https://github.com/sameersemna/Container-validator-JS)
+- There is a JavaScript port by Sameer Shemna that can be found [here](https://github.com/sameersemna/Container-validator-JS)
+- There is as well [Symfony Validator Constraint](https://github.com/ostrolucky/symfony-container-number-validator)
 
 ## License
 
